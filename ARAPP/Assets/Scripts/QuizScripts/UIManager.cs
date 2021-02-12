@@ -1,7 +1,6 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,13 +57,10 @@ public struct UIElements
 }
 public class UIManager : MonoBehaviour
 {
-
-
     public enum ResolutionScreenType { Correct, Incorrect }
 
     [Title("Refrances (AssetsOnly)")]
     [SerializeField] [AssetsOnly] GameEvents events;
-
     [SerializeField] [AssetsOnly] AnswerData answerPrefab;
 
     [Title("UI (Scene OBJ only)")]
@@ -75,19 +71,17 @@ public class UIManager : MonoBehaviour
 
 
     private bool explained = false;
-    private String _explanation;
+    private string _explanation;
 
     private void OnEnable()
     {
         events.UpdateQuestionUI += UpdateQuestionUI;
         events.DisplayResolutionScreen += DisplayResolution;
-        //events.ScoreUpdated += UpdateScoreUI;
     }
     private void OnDisable()
     {
         events.UpdateQuestionUI -= UpdateQuestionUI;
         events.DisplayResolutionScreen -= DisplayResolution;
-        //events.ScoreUpdated -= UpdateScoreUI;
     }
 
     void UpdateQuestionUI(Question question)
@@ -101,20 +95,13 @@ public class UIManager : MonoBehaviour
 
     void CreateAnswers(Question question)
     {
-
-
         float offset = 0 - parameters.Margins;
         for (int i = 0; i < question.Answers.Length; i++)
         {
-            AnswerData newAnswer = (AnswerData)Instantiate(answerPrefab, uIElements.AnswersContentArea);
+            AnswerData newAnswer = Instantiate(answerPrefab, uIElements.AnswersContentArea);
             newAnswer.UpdateData(question.Answers[i].Info, i);
-
             newAnswer.Rect.anchoredPosition = new Vector2(0, offset);
-
             offset -= (newAnswer.Rect.sizeDelta.y + parameters.Margins);
-
-
-
         }
     }
 
@@ -163,6 +150,7 @@ public class UIManager : MonoBehaviour
         if (!explained)
         {
             uIElements.ResolutionStateInfoText.DOText(_explanation, 1);
+            uIElements.ResolutionStateInfoText.DOPlay();
             explained = true;
         }
     }

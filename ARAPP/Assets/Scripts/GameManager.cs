@@ -1,39 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class GameManager : MonoBehaviour
+public class GameManager : GameManagerInterface
 {
-    [SerializeField] GameEvents events = null;
-    PuzzleMarkerSO lastSelectedMarker;
-    public PuzzleMarkerSO LastSelectedMarker {get{return lastSelectedMarker;}}
+    private PuzzleMarkerSO lastSelectedMarker;
 
-    static GameManager _instance;
-    public static GameManager Instance { get { return _instance; } }
-
-    void Awake()
-    {
-        if (_instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            _instance = this;
-        }
-        else if (_instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnEnable()
-    {
-        events.setLastSelectedMarker += SetMarker;
-    }
-
- 
-
-    private void OnDestroy()
-    {
-        events.setLastSelectedMarker -= SetMarker;
-    }
     public void LoadMainMenue()
     {
         SceneManager.LoadScene(0);
@@ -49,12 +19,24 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    void SetMarker(PuzzleMarkerSO marker)
-    {
-        lastSelectedMarker = marker;
-    }
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public PuzzleMarkerSO GetLastSelectedMarker()
+    {
+        return lastSelectedMarker;
+    }
+
+    public void SetLastSelectedMarker(PuzzleMarkerSO marker)
+    {
+        Debug.Log(marker.name);
+        this.lastSelectedMarker = marker;
+    }
+
+    public void RetryScene(int SceneID)
+    {
+        SceneManager.LoadScene(SceneID);
     }
 }

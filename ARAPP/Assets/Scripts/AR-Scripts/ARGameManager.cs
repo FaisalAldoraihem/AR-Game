@@ -3,11 +3,13 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Zenject;
 
 public class ARGameManager : MonoBehaviour
 {
-    
+
+    private GameManagerInterface gmInterface;
+    private SignalBus _signalBus;
 
     [Title("Refrances (AssetsOnly)")]
     [SerializeField] [AssetsOnly] GameEvents events = null;
@@ -17,16 +19,24 @@ public class ARGameManager : MonoBehaviour
     [SerializeField] [SceneObjectsOnly] DOTweenAnimation popUpAnimator;
     [SerializeField] [SceneObjectsOnly] TextMeshProUGUI puzzleTitle;
     [SerializeField] [SceneObjectsOnly] TextMeshProUGUI puzzleDescription;
-    
+
     public DOTweenAnimation PopUpAnimator { get { return popUpAnimator; } }
+
+
+    [Inject]
+    public void Setup(GameManagerInterface GMInterface,SignalBus signalBus)
+    {
+        gmInterface = GMInterface;
+        _signalBus = signalBus;
+    }
+
 
     private void Awake()
     {
         SetOrentation();
-
     }
 
-    private static void SetOrentation()
+    private void SetOrentation()
     {
         Screen.orientation = ScreenOrientation.Portrait;
         Screen.autorotateToPortrait = true;
@@ -37,18 +47,15 @@ public class ARGameManager : MonoBehaviour
 
     void Update()
     {
-        
-        if (Input.touchCount > 0 )
+
+        if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            Debug.Log("Touch registerd");
             if (touch.phase == TouchPhase.Began)
             {
-                Debug.Log("Touch phase begins");
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
                 if (Physics.Raycast(ray, out RaycastHit hitObject))
                 {
-                    Debug.Log("It has the marker");
                     PuzzleMarker marker = hitObject.transform.GetComponent<PuzzleMarker>();
                     if (marker != null)
                     {
@@ -60,7 +67,7 @@ public class ARGameManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hitObject))
             {
@@ -79,7 +86,7 @@ public class ARGameManager : MonoBehaviour
         puzzleTitle.text = puzzle.puzzleTitle;
         puzzleDescription.text = puzzle.puzzleDescription;
         PopUpAnimator.DORestartById("PopUP");
-        
+
     }
 
     public void ClosePopUp()
@@ -91,19 +98,16 @@ public class ARGameManager : MonoBehaviour
     {
         PuzzleMarkerSO markerSo = marker.markerSo;
         PopUp(markerSo);
-        if (events.setLastSelectedMarker != null)
-        {
-            events.setLastSelectedMarker(markerSo);
-        }
+        _signalBus.Fire(new MarkerScannedSignal(markerSo));
     }
 
     public void LoadMultipleChoice()
     {
-        GameManager.Instance.LoadMultipleChoice();
+        gmInterface.LoadMultipleChoice();
     }
 
     public void LoadMainMenue()
     {
-        GameManager.Instance.LoadMainMenue();
+        gmInterface.LoadMainMenue();
     }
 }

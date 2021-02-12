@@ -1,16 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class MainMenueManager : MonoBehaviour
 {
-   public void Play()
+    private GameManagerInterface gmInterface;
+
+    [Inject]
+    public void Setup(GameManagerInterface GMInterface)
     {
-        GameManager.Instance.LoadAR();
+        gmInterface = GMInterface;
+    }
+
+    public void Play()
+    {
+        gmInterface.LoadAR();
     }
 
     public void Quit()
     {
-        GameManager.Instance.Quit();
+        gmInterface.Quit();
     }
 }

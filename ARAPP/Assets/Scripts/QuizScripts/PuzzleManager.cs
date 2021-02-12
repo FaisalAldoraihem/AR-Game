@@ -1,23 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 public class PuzzleManager : MonoBehaviour
-{ 
-    
+{
+
     [SerializeField] GameEvents events = null;
 
+    private GameManagerInterface gmInterface;
     private Question currentQuestion;
     private AnswerData PickedAnswer;
-    
 
+
+    [Inject]
+    public void Setup(GameManagerInterface GMInterface)
+    {
+        gmInterface = GMInterface;
+    }
 
     void OnEnable()
     {
         events.UpdateQuestionAnswer += UpdateAnswer;
     }
-    /// <summary>
-    /// Function that is called when the behaviour becomes disabled
-    /// </summary>
+   
     void OnDisable()
     {
         events.UpdateQuestionAnswer -= UpdateAnswer;
@@ -29,7 +34,7 @@ public class PuzzleManager : MonoBehaviour
         SetOrientation();
     }
 
-    
+
 
     private void Start()
     {
@@ -39,7 +44,6 @@ public class PuzzleManager : MonoBehaviour
 
     void Display()
     {
-        Debug.Log(currentQuestion.Info);
         if (events.UpdateQuestionUI != null)
         {
             events.UpdateQuestionUI(currentQuestion);
@@ -63,26 +67,25 @@ public class PuzzleManager : MonoBehaviour
     public void Accept()
     {
         bool isCorrect = CheckAnswer();
-        Debug.Log("Answer is: " + isCorrect);
         var type = isCorrect ? UIManager.ResolutionScreenType.Correct : UIManager.ResolutionScreenType.Incorrect;
 
         if (events.DisplayResolutionScreen != null)
         {
             events.DisplayResolutionScreen(type);
-            Debug.Log("Answer type: " + type);
+
         }
         //TODO playaudio? too taky? (its not furniture dumbass)
-        //Todo update the players Answerd questions if correct (events updatedAnswerdQuestions witch will have our api class supscribed to it whenever we make it?)
+        //Todo update the players Answerd questions if correct 
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gmInterface.RetryScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Return()
     {
-        SceneManager.LoadScene("AR");
+        gmInterface.LoadAR();
     }
 
     private bool CheckAnswer()
@@ -90,7 +93,6 @@ public class PuzzleManager : MonoBehaviour
         if (PickedAnswer != null)
         {
             int correctIndex = currentQuestion.GetCorrectAnswer();
-            Debug.Log("Answer index: " + correctIndex);
             return PickedAnswer.AnswerIndex == correctIndex;
         }
         return false;
@@ -98,9 +100,11 @@ public class PuzzleManager : MonoBehaviour
 
     void LoadQuestion()
     {
-        PuzzleMarkerSO puzzleMarkerSO = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().LastSelectedMarker;
-        if(puzzleMarkerSO != null)
+        PuzzleMarkerSO puzzleMarkerSO = gmInterface.GetLastSelectedMarker();
+        Debug.Log(puzzleMarkerSO.name);
+        if (puzzleMarkerSO != null)
         {
+            Debug.Log("Marker Loaded");
             Object obj = Resources.Load<Question>("Questions/" + puzzleMarkerSO.puzzleID);
             currentQuestion = (Question)obj;
         }
