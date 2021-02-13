@@ -1,9 +1,14 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Zenject;
 
 public class AnswerData : MonoBehaviour
 {
+    private int _anserIndex = -1;
+    public int AnswerIndex { get { return _anserIndex; } }
+
+    private bool cheacked = false;
     [Header("UI Elements")]
     [SerializeField] TextMeshProUGUI infoTextObject;
     [SerializeField] Image toggle = null;
@@ -12,8 +17,8 @@ public class AnswerData : MonoBehaviour
     [SerializeField] Sprite uncheckedToggle = null;
     [SerializeField] Sprite checkedToggle = null;
 
-    [Header("References")]
-    [SerializeField] GameEvents events = null;
+    [Header("My dumbass is tierd")]
+    [SerializeField] PuzzleManager puzzleManager;
 
     private RectTransform _rect;
     public RectTransform Rect
@@ -27,11 +32,7 @@ public class AnswerData : MonoBehaviour
             return _rect;
         }
     }
-    private int _anserIndex = -1;
-    public int AnswerIndex { get { return _anserIndex; } }
-
-    private bool cheacked = false;
-
+    private void Start() => puzzleManager = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<PuzzleManager>();
     public void UpdateData(string info, int index)
     {
         infoTextObject.text = info;
@@ -48,12 +49,9 @@ public class AnswerData : MonoBehaviour
     {
         cheacked = !cheacked;
         UpdateUI();
-
-        if (events.UpdateQuestionAnswer != null)
-        {
-            events.UpdateQuestionAnswer(this);
-        }
+        puzzleManager.UpdateAnswer(this);
     }
+
     void UpdateUI()
     {
         toggle.sprite = (cheacked) ? checkedToggle : uncheckedToggle;

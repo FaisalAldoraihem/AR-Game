@@ -11,9 +11,6 @@ public class ARGameManager : MonoBehaviour
     private GameManagerInterface gmInterface;
     private SignalBus _signalBus;
 
-    [Title("Refrances (AssetsOnly)")]
-    [SerializeField] [AssetsOnly] GameEvents events = null;
-
     [Title("UI (Scene OBJ only)")]
     [SerializeField] [SceneObjectsOnly] Camera arCamera;
     [SerializeField] [SceneObjectsOnly] DOTweenAnimation popUpAnimator;

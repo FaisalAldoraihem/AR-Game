@@ -132,12 +132,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 88836029}
-  - component: {fileID: 88836028}
-  - component: {fileID: 88836030}
   - component: {fileID: 88836031}
+  - component: {fileID: 88836030}
+  - component: {fileID: 88836028}
   m_Layer: 0
   m_Name: PuzzleManager
-  m_TagString: Untagged
+  m_TagString: PuzzleManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9218e15de9f0c945a9a63e206942268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events: {fileID: 11400000, guid: fbea2e7ee8c196d49b4b890241cc83c0, type: 2}
   answerPrefab: {fileID: 6881101330725318724, guid: 4995ddf04204b98459c04ac5c2439698,
     type: 3}
   uIElements:
@@ -170,8 +169,8 @@ MonoBehaviour:
     retry: {fileID: 1142373659}
   parameters:
     margins: 30
-    correctBGColor: {r: 0.45705497, g: 0.43596473, b: 0.9150943, a: 1}
-    incorrectBGColor: {r: 0.8301887, g: 0.13705944, b: 0.16450827, a: 1}
+    correctBGColor: {r: 0.33978385, g: 0.17568529, b: 0.7924528, a: 1}
+    incorrectBGColor: {r: 0.6981132, g: 0.20087217, b: 0.20087217, a: 0}
 --- !u!4 &88836029
 Transform:
   m_ObjectHideFlags: 0
@@ -198,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7908004aa4f5de64e9f7b1d408208453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events: {fileID: 11400000, guid: fbea2e7ee8c196d49b4b890241cc83c0, type: 2}
 --- !u!114 &88836031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers: []
-  _installerPrefabs: []
+  _installerPrefabs:
+  - {fileID: 2757525121093998786, guid: a8958101c00dd77469941f3b9da1ae1b, type: 3}
   _autoRun: 1
   OnPreInstall:
     m_PersistentCalls:
@@ -1596,7 +1595,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.65
+  m_fontSize: 55.1
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2462,7 +2461,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 88836028}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ShowExplanation
         m_Mode: 1

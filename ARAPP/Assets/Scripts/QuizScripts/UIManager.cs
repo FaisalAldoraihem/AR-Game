@@ -4,6 +4,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 [Serializable()]
 public struct UIManagerParamaters
@@ -57,10 +58,15 @@ public struct UIElements
 }
 public class UIManager : MonoBehaviour
 {
+
+    private SignalBus _signalBus;
+
+    private bool explained = false;
+    private string _explanation;
+
     public enum ResolutionScreenType { Correct, Incorrect }
 
     [Title("Refrances (AssetsOnly)")]
-    [SerializeField] [AssetsOnly] GameEvents events;
     [SerializeField] [AssetsOnly] AnswerData answerPrefab;
 
     [Title("UI (Scene OBJ only)")]
@@ -69,22 +75,25 @@ public class UIManager : MonoBehaviour
     [Title("Paramaters")]
     [SerializeField] [SceneObjectsOnly] UIManagerParamaters parameters;
 
-
-    private bool explained = false;
-    private string _explanation;
+    [Inject]
+    public void Setup(SignalBus signalBus)
+    {
+        _signalBus = signalBus;
+    }
 
     private void OnEnable()
     {
-        events.UpdateQuestionUI += UpdateQuestionUI;
-        events.DisplayResolutionScreen += DisplayResolution;
-    }
-    private void OnDisable()
-    {
-        events.UpdateQuestionUI -= UpdateQuestionUI;
-        events.DisplayResolutionScreen -= DisplayResolution;
+        _signalBus.Subscribe<QuestionUpdatedSignal>((Signal) => UpdateQuestionUI(Signal.Question));
+        _signalBus.Subscribe<QuestionAnswerdSignal>((Signal) => DisplayResolution(Signal.Type));
     }
 
-    void UpdateQuestionUI(Question question)
+    private void OnDisable()
+    {
+        _signalBus.TryUnsubscribe<QuestionUpdatedSignal>((Signal) => UpdateQuestionUI(Signal.Question));
+        _signalBus.TryUnsubscribe<QuestionAnswerdSignal>((Signal) => DisplayResolution(Signal.Type));
+    }
+
+    public void UpdateQuestionUI(Question question)
     {
         uIElements.QuestionInfoTextObject.text = question.Info;
         uIElements.ResolutionHintText.text = question.Hint;
@@ -105,7 +114,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void DisplayResolution(ResolutionScreenType type)
+    public void DisplayResolution(ResolutionScreenType type)
     {
         UpdateResolutionUI(type);
         uIElements.ResolutionScreenAnimator.DOPlay();
