@@ -99,9 +99,14 @@ public class PuzzleManager : MonoBehaviour
         PuzzleMarkerSO puzzleMarkerSO = gmInterface.GetLastSelectedMarker();
         if (puzzleMarkerSO != null)
         {
-            Object obj = Resources.Load<Question>("Questions/" + puzzleMarkerSO.puzzleID);
+            Object obj = Resources.Load<Question>("Questions/" + 1);
             currentQuestion = (Question)obj;
         }
+
+        //lil code to load a file while in the puzzle scene from the start
+
+        //Object obj = Resources.Load<Question>("Questions/" + 1);  
+        //currentQuestion = (Question)obj;
     }
 
     private static void SetOrientation()

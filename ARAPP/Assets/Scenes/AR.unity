@@ -578,7 +578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045c458e29f00584dbe4fc2a8f21feb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events: {fileID: 11400000, guid: fbea2e7ee8c196d49b4b890241cc83c0, type: 2}
   arCamera: {fileID: 314926029}
   popUpAnimator: {fileID: 46658785}
   puzzleTitle: {fileID: 1547545267}
@@ -591,7 +590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211946142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 235.89462, y: 795.5614, z: -274.20187}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2224,7 +2223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 1
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
