@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : GameManagerInterface
 {
-    private PuzzleMarkerSO lastSelectedMarker;
+    private PuzzleSO lastSelectedMarker;
 
     public void LoadMainMenue()
     {
@@ -24,12 +24,12 @@ public class GameManager : GameManagerInterface
         Application.Quit();
     }
 
-    public PuzzleMarkerSO GetLastSelectedMarker()
+    public PuzzleSO GetLastSelectedMarker()
     {
         return lastSelectedMarker;
     }
 
-    public void SetLastSelectedMarker(PuzzleMarkerSO marker)
+    public void SetLastSelectedMarker(PuzzleSO marker)
     {
         Debug.Log(marker.name);
         this.lastSelectedMarker = marker;

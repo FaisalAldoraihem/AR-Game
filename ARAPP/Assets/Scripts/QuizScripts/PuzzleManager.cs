@@ -96,7 +96,7 @@ public class PuzzleManager : MonoBehaviour
 
     void LoadQuestion()
     {
-        PuzzleMarkerSO puzzleMarkerSO = gmInterface.GetLastSelectedMarker();
+        PuzzleSO puzzleMarkerSO = gmInterface.GetLastSelectedMarker();
         if (puzzleMarkerSO != null)
         {
             Object obj = Resources.Load<Question>("Questions/" + 1);

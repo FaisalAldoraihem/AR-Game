@@ -80,7 +80,7 @@ public class ARGameManager : MonoBehaviour
         }
     }
 
-    public void PopUp(PuzzleMarkerSO puzzle)
+    public void PopUp(PuzzleSO puzzle)
     {
         puzzleTitle.text = puzzle.puzzleTitle;
         puzzleDescription.text = puzzle.puzzleDescription;
@@ -96,7 +96,7 @@ public class ARGameManager : MonoBehaviour
 
     void MarkerSelected(PuzzleMarker marker)
     {
-        PuzzleMarkerSO markerSo = marker.markerSo;
+        PuzzleSO markerSo = marker.PuzzleSO;
         PopUp(markerSo);
         _signalBus.Fire(new MarkerScannedSignal(markerSo));
     }

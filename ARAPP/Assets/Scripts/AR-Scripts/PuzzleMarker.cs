@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleMarker : MonoBehaviour
 {
-    public PuzzleMarkerSO markerSo;
+    public PuzzleSO PuzzleSO { get; private set; }
 
+    //TODO: Change the UI based on wether or not the puzzle was finished 
 }

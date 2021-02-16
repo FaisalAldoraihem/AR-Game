@@ -6,7 +6,7 @@ public interface GameManagerInterface
     void LoadAR();
     void LoadMultipleChoice();
     void Quit();
-    PuzzleMarkerSO GetLastSelectedMarker();
+    PuzzleSO GetLastSelectedMarker();
 
     void RetryScene(int sceneID);
 }

@@ -1,12 +1,12 @@
 
 public class MarkerScannedSignal
 {
-    public MarkerScannedSignal(PuzzleMarkerSO marker)
+    public MarkerScannedSignal(PuzzleSO marker)
     {
         Marker = marker;
     }
 
-    public PuzzleMarkerSO Marker
+    public PuzzleSO Marker
     {
         get; private set;
     }
