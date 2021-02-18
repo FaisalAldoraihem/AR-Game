@@ -103,6 +103,7 @@ public class ARGameManager : MonoBehaviour
 
     public void LoadMultipleChoice()
     {
+        Debug.Log("Hello");
         gmInterface.LoadMultipleChoice();
     }
 
