@@ -82,8 +82,8 @@ public class ARGameManager : MonoBehaviour
 
     public void PopUp(PuzzleSO puzzle)
     {
-        puzzleTitle.text = puzzle.puzzleTitle;
-        puzzleDescription.text = puzzle.puzzleDescription;
+        puzzleTitle.text = puzzle.PuzzleTitle;
+        puzzleDescription.text = puzzle.PuzzleDescription;
         PopUpAnimator.DORestartById("PopUP");
         poped = true;
     }

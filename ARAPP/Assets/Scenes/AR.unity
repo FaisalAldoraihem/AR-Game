@@ -847,7 +847,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 450845864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ceb38cfc9cf8d438b95696fba0e6c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f168d024eccd37418a5f1919277121f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleSO: {fileID: 11400000, guid: 7d05df36e67982749a8921f3ac292007, type: 2}
@@ -1092,6 +1092,60 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f04b8ae4caf7c8549931b76945d61917, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+--- !u!4 &507662706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5477749408508380018, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &507662707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &507662708 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2577548232221058511, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &507662709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &507662710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &507662711 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7202271454713460447, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &507662712 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4683669308469848369, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &507662713 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: -3857212601033656251, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &507662714 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 5334037119324981776, guid: 0a944aad681317b48b8003e39cb676c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 507662705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &723285996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1211,249 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &735593845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 735593849}
+  - component: {fileID: 735593848}
+  - component: {fileID: 735593847}
+  - component: {fileID: 735593846}
+  m_Layer: 0
+  m_Name: Easy Save 3 Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &735593846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735593845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9107aee0ced90422da95f0b31680501f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: bc11e464-5e6e-4358-b7a7-bb909ced97b0
+  saveEvent: 1
+  loadEvent: 1
+  settings:
+    _location: 0
+    path: SaveData.es3
+    encryptionType: 0
+    encryptionPassword: password
+    directory: 0
+    format: 0
+    bufferSize: 2048
+    typeChecking: 1
+    safeReflection: 1
+    memberReferenceMode: 0
+    referenceMode: 2
+    assemblyNames:
+    - Assembly-CSharp
+    - Assembly-CSharp-firstpass
+    showAdvancedSettings: 0
+  autoSaves: []
+--- !u!114 &735593847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735593845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a83408fcc9044c4fbc7e5d09a369ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openReferences: 0
+  openPrefabs: 0
+  idRef:
+    _Keys: c721451c00f6793efb9b66b42ac38323e1fa259f1992a71f9e72b994624ce157b014666a85b13843c345f3c4255fab76f5a20d99f27f5959379b8272c21b235046f09cc1d611572f3e1d9da07a93bb3f3abd6040c1b79a2f6ec033e92fc6812169430a16fb6d4c07f93d5bd5e2b8df35a83ec7fb451c7172a993abe9219200059ebe373689a444580b6739fe126f112560976d927283994cd2986c68c262e5673d55362380a9ac04fa6e05ac56708519a4d08989246d931bdb149b0fc723696d4ea13b68a635a648eb6998037eecf661edad3c0e27a4bd30c21bfd9544bbcb1e288d06085311402577d29ebad58f9c39f502dde519a5b9561bf4d43eccc472309d792b0bf2feb52593e87a06bd88f9337ec4a042dde60532485c2448e67ef24da091e3a49b6eb809b347adcfd44c666c055f3ff7dbd0ad4874f8524f22fd0b1126385ab1946230127da9f52594d407040948bb78c1058e301b65e76b3ef7d44fad4055630e4a285e2f2d7584c5d2dc6010b1ba25bd6daf2ac78bccfa499c517a2c5a88ac805c0941e1a2581185ec0a1241477af0b2fa0d1af0802a991722a86e2405a694b5d0204c5787bae4eb625a2682ba3b9117412c2568a29c0086a25803b538ca756c613871dad267d4c0d7d07125041ad25e398665ce3404a793de2c05dfbe2fb297e5b91d0d5248ba25a79b702dd5d97542d49d7bb26442a165df04055a9e4b80f87cf63fb6033af30e34c075308b2a97475eb70b20b40032a318b82db3bd9f78a3e5884e2265d5baf06e7619db478e264a924103e6405f447cc39c324497beae6bb72d15ed864753cc8d0470d6e6f2145821871f8463a11cbb32341bfdf70177d2db7b6d8a5cc53bb411c87444d01a62b6b18b65e121d5f8e9eea61f449daf3b7183bd4f9ea0604b183c2b729b2dd7ea18d2644c6c9b57f3b0735679fe1b09e89d73fc3fee343be9afbfb21db3b76ce9396fc8723863cfd52cca9e2a49e749334513100e2a17d84c0d4efb2bb28ac007f992c06c1c84dffebd2d9448d466339608e6635f5aa140dd69849b16995c7849755adb235949e83ecbeeae0382902074819234342860ae5752e2035fe10a68e65a2242798b0f3ebefe24946bf33d5ff9a40f982a91ad2114ab84d17547895dc185c8a85b2e66016f2e0ccc0333bd9beb7df5452e733e55ac012ecd063ec97875c6d3e52a6bfb33c1f1d6047ce11d47681fbdf23c3173b1b98d04a5006605ce9a6ba8c3065e3a807e3d7cc349bc2e331c199b187f29c459c57b60486756335bec08691077e24e0be53d74fe51ca0503a02f771934ec4e71a74efe8b427d182b8e2850ad53e3430197580242623e54717f9b1769324c90ffbaf869281fda4e62559f8d7a19b356beeb7681dc116f2b1b5c90f5216b7fa1bd67af0ca54c94de42f560123d4fdb57cc45597dbc316c1029238485af1bd308280130ed95594e8d80ab3c2d8e7e696a823828dc12011a732b40c9362f0f2e262257ea3b1e3712d96c180298913e7f547310f817bc4f1b29e7bcc1558f175e717c150b37935c8aba4a01492b037de1edbe1eaa4007461e8ec43fab9e8a42
+    _Values:
+    - {fileID: 507662714}
+    - {fileID: -3857212601033656251, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 5334037119324981776, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 507662713}
+    - {fileID: 507662712}
+    - {fileID: 507662711}
+    - {fileID: 507662710}
+    - {fileID: 507662709}
+    - {fileID: 507662708}
+    - {fileID: 507662707}
+    - {fileID: 507662706}
+    - {fileID: 919132149155446097, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 2534964839176971238, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 11500000, guid: 045c458e29f00584dbe4fc2a8f21feb1, type: 3}
+    - {fileID: -4683669308469848369, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 7202271454713460447, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: -8679921383154817045, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 11500000, guid: 7f168d024eccd37418a5f1919277121f, type: 3}
+    - {fileID: 2100000, guid: f04b8ae4caf7c8549931b76945d61917, type: 2}
+    - {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 6, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 2800000, guid: e81b417745c482048b26fa9c3fdd83c6, type: 3}
+    - {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+    - {fileID: -5495902117074765545, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+    - {fileID: 2800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    - {fileID: -5477749408508380018, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 2800000, guid: 4fbed2e05a6231f418c885edcf63057d, type: 3}
+    - {fileID: 11500000, guid: fa850fbd5b8aded44846f96e35f1a9f5, type: 3}
+    - {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+    - {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+    - {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
+    - {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+    - {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+    - {fileID: 2100000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    - {fileID: 2800000, guid: 2fd6421f253b4ef1a19526541f9ffc0c, type: 3}
+    - {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+    - {fileID: 2800000, guid: 8236c695e72414e7889fb3f4d8226fde, type: 3}
+    - {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+    - {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+    - {fileID: 11400000, guid: 7d05df36e67982749a8921f3ac292007, type: 2}
+    - {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
+    - {fileID: 11500000, guid: 816b289ef451e094f9ae174fb4cf8db0, type: 3}
+    - {fileID: 11500000, guid: db4d41eadb516a8428d5786583ab08c6, type: 3}
+    - {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
+    - {fileID: 670224309865224971, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 11500000, guid: 3859a92a05d4f5d418cb6ca605290e74, type: 3}
+    - {fileID: 11500000, guid: 520bb47c46cf8624fafb307b7d1b862a, type: 3}
+    - {fileID: -2577548232221058511, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: -8391222552659086748, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: -5568371526223589888, guid: 0a944aad681317b48b8003e39cb676c2, type: 3}
+    - {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+    - {fileID: 2800000, guid: ee148e281f3c41c5b4ff5f8a5afe5a6c, type: 3}
+    - {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+    - {fileID: 2100000, guid: ccdf0702f9b9d7649bef6cdaf04194b7, type: 2}
+    - {fileID: 11500000, guid: 5215618e31aa75446a97ab7e940721de, type: 3}
+    - {fileID: 11500000, guid: b9c22b24706239b42ade0175d6360f28, type: 3}
+    - {fileID: 504690949}
+    - {fileID: 723285999}
+    - {fileID: 723285998}
+    - {fileID: 723285997}
+    - {fileID: 1129826444}
+    - {fileID: 1129826448}
+    - {fileID: 1129826447}
+    - {fileID: 1129826446}
+    - {fileID: 1141171272}
+    - {fileID: 1141171271}
+    - {fileID: 1141171275}
+    - {fileID: 1141171274}
+    - {fileID: 1141171273}
+    - {fileID: 1494529335}
+    - {fileID: 1494529338}
+    - {fileID: 1494529337}
+    - {fileID: 1494529336}
+    - {fileID: 1694135921}
+    - {fileID: 1694135925}
+    - {fileID: 1694135924}
+    - {fileID: 1694135923}
+    - {fileID: 1694135922}
+    - {fileID: 2035791218}
+    - {fileID: 1856943770}
+    - {fileID: 1856943773}
+    - {fileID: 1856943772}
+    - {fileID: 2035791217}
+    - {fileID: 2035791221}
+    - {fileID: 2035791220}
+    - {fileID: 2035791219}
+    - {fileID: 2042343642}
+    - {fileID: 2337108861657353375, guid: 27482441fdcab9f43a09872b86efe813, type: 3}
+    - {fileID: 1704184992374069298, guid: 27482441fdcab9f43a09872b86efe813, type: 3}
+    - {fileID: 238689549}
+    - {fileID: 238689548}
+    - {fileID: 504690948}
+    - {fileID: 1856943774}
+    - {fileID: 1129826445}
+    - {fileID: 314926028}
+    - {fileID: 314926032}
+    - {fileID: 314926031}
+    - {fileID: 314926030}
+    - {fileID: 450845864}
+    - {fileID: 450845865}
+    - {fileID: 450845866}
+    - {fileID: 504690947}
+    - {fileID: 504690950}
+    - {fileID: 723285996}
+    - {fileID: 655452984177957636, guid: 27482441fdcab9f43a09872b86efe813, type: 3}
+    - {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - {fileID: 35582736}
+    - {fileID: 35582738}
+    - {fileID: 35582737}
+    - {fileID: 46658783}
+    - {fileID: 46658784}
+    - {fileID: 46658787}
+    - {fileID: 46658785}
+    - {fileID: 21300000, guid: 4fbed2e05a6231f418c885edcf63057d, type: 3}
+    - {fileID: 21300000, guid: e81b417745c482048b26fa9c3fdd83c6, type: 3}
+    - {fileID: 2042343641}
+    - {fileID: 2042343644}
+    - {fileID: 2042343643}
+    - {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    - {fileID: 28684132378477856, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    - {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    - {fileID: 28268798066460806, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    - {fileID: 46658786}
+    - {fileID: 238689547}
+    - {fileID: 2042343645}
+    - {fileID: 122882628}
+    - {fileID: 122882632}
+    - {fileID: 122882631}
+    - {fileID: 122882629}
+    - {fileID: 314926029}
+    - {fileID: 314926033}
+    - {fileID: 211946142}
+    - {fileID: 211946144}
+    - {fileID: 211946143}
+    - {fileID: 211946145}
+    - {fileID: 504690951}
+    - {fileID: 1856943771}
+    - {fileID: 238689546}
+  prefabs: []
+--- !u!114 &735593848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735593845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8714d999c5ae749538494c1347e5a3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: 'The Easy Save 3 Manager is required in any scenes which use Easy Save,
+    and is automatically added to your scene when you enter Play mode.
+
+
+    To stop
+    this from automatically being added to your scene, go to ''Window > Easy Save
+    3 > Settings'' and deselect the ''Auto Add Manager to Scene'' checkbox.'
+--- !u!4 &735593849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735593845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129826444
 GameObject:

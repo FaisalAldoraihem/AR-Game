@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameManager
   - PuzzleManager
+  - MainMenueManager
   layers:
   - Default
   - TransparentFX

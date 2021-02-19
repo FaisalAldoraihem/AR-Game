@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c22b24706239b42ade0175d6360f28, type: 3}
   m_Name: TestPuzzle
   m_EditorClassIdentifier: 
-  puzzleID: 1
-  puzzleTitle: Hell?
-  puzzleDescription: Mybe
+  PuzzleID: 1
+  PuzzleTitle: Ya Beb
+  PuzzleDescription: BEB ya
+  LocationName: My home
+  LocationDesctiption: 'very nice very inviting '
