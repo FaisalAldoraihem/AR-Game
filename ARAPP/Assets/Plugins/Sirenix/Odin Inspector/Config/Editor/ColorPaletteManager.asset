@@ -92,6 +92,8 @@ MonoBehaviour:
     - {r: 0.871, g: 0.812, b: 0.698, a: 1}
     - {r: 0.4, g: 0.196, b: 0.243, a: 1}
     - {r: 0.271, g: 0.157, b: 0.227, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
   - name: Underwater
     showAlpha: 0
     colors:
