@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9c22b24706239b42ade0175d6360f28, type: 3}
-  m_Name: TestPuzzle
+  m_Name: 3
   m_EditorClassIdentifier: 
   PuzzleID: 1
   PuzzleTitle: Ya Beb
   PuzzleDescription: BEB ya
-  LocationName: My home
+  LocationName: Her Home
   LocationDesctiption: 'very nice very inviting '

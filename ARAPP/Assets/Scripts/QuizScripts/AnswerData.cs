@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
 public class AnswerData : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class AnswerData : MonoBehaviour
     public int AnswerIndex { get { return _anserIndex; } }
 
     private bool cheacked = false;
-    [Header("UI Elements")]
+    [Title("UI Elements")]
     [SerializeField] TextMeshProUGUI infoTextObject;
     [SerializeField] Image toggle = null;
 

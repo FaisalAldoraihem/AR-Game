@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7009229980257204223}
   - component: {fileID: 351318645142007031}
   - component: {fileID: 716033119752295129}
-  - component: {fileID: -8553049357177547573}
+  - component: {fileID: 3400645745503792235}
   m_Layer: 5
   m_Name: PuzzleInfoIcon
   m_TagString: Untagged
@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 4553259353588032491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -120,8 +120,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 351318645142007031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &-8553049357177547573
+      m_Calls:
+      - m_Target: {fileID: 3400645745503792235}
+        m_TargetAssemblyTypeName: LocationInfo, Assembly-CSharp
+        m_MethodName: SetLastSelectedPuzzle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3400645745503792235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba72d40570d9ba4bb9ea46a1c392b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solvedSprite: {fileID: 21300000, guid: 37c69717eaff50a47ad6609a793086e9, type: 3}
+  solvedSprite: {fileID: 21300000, guid: cf9ba8b62962e9b4d953b3d6531390b5, type: 3}
   icon: {fileID: 351318645142007031}
   puzzle: {fileID: 11400000, guid: 7d05df36e67982749a8921f3ac292007, type: 2}
+  mainMenueManager: {fileID: 0}
