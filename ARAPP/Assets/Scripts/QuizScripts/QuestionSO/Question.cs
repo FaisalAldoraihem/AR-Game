@@ -18,7 +18,7 @@ public class Question : ScriptableObject
 {
 
     [SerializeField] private int questionID;
-    public int ID { get { return ID; } }
+    public int ID { get { return questionID; } }
 
     [SerializeField] private string _info = string.Empty;
     public string Info { get { return _info; } }

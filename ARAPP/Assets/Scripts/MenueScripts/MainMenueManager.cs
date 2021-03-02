@@ -2,6 +2,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class MainMenueManager : MonoBehaviour
@@ -14,6 +15,7 @@ public class MainMenueManager : MonoBehaviour
     [SerializeField] [SceneObjectsOnly] TextMeshProUGUI puzzleLocationDescription;
     [SerializeField] [SceneObjectsOnly] DOTweenAnimation locationInfoPopUpAnimator;
     [SerializeField] [SceneObjectsOnly] DOTweenAnimation locationsPopUpAnimator;
+    [SerializeField] [SceneObjectsOnly] Button retryButton;
 
     [Inject]
     public void Setup(GameManagerInterface GMInterface)
@@ -42,7 +44,23 @@ public class MainMenueManager : MonoBehaviour
     {
         puzzleLocationTitle.text = lastSelectedPuzzle.LocationName;
         puzzleLocationDescription.text = lastSelectedPuzzle.LocationDesctiption;
+        SetLocationButton();
+
         locationsPopUpAnimator.DORestartById("CloseLocations");
         locationInfoPopUpAnimator.DORestartById("PopLocationInfo");
+    }
+
+    private void SetLocationButton(){
+
+        if(lastSelectedPuzzle.CheckSolved()){
+            retryButton.gameObject.SetActive(true);
+        }else{
+            retryButton.gameObject.SetActive(false);
+
+        }
+    }
+    
+    public void ReplayPuzzle(){
+        gmInterface.LoadPuzzle(lastSelectedPuzzle);
     }
 }

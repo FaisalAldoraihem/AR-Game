@@ -13,24 +13,14 @@ public class PuzzleSO : ScriptableObject
     public string LocationName;
 
     public string LocationDesctiption;
-
-    private bool solved;
-    public bool Solved { get { return solved; }  }
-
+    
     private void Awake()
     {
         CheckSolved();
     }
 
-    private void CheckSolved()
+    public bool CheckSolved()
     {
-        if (ES3.KeyExists("solvedPuzzles"))
-        {
-            solved = ES3.Load<List<int>>("solvedPuzzles").Contains(PuzzleID);
-        }
-        else
-        {
-            solved = false;
-        }
+        return ES3.Load<List<int>>("solvedPuzzles").Contains(PuzzleID);
     }
 }

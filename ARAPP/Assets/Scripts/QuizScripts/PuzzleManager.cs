@@ -66,12 +66,15 @@ public class PuzzleManager : MonoBehaviour
 
     //TODO playaudio? too taky? (its not furniture dumbass)
     //TODO update the players Answerd questions if correct 
-    public void Accept()
+    public void SubmitAnswer()
     {
         bool isCorrect = CheckAnswer();
         var type = isCorrect ? UIManager.ResolutionScreenType.Correct : UIManager.ResolutionScreenType.Incorrect;
-
         _signalBus.Fire(new QuestionAnswerdSignal(type));
+        
+        if(isCorrect){
+            gmInterface.SaveAnswerdQuestion(currentQuestion.ID);
+        }
     }
 
     public void Retry()
@@ -81,7 +84,7 @@ public class PuzzleManager : MonoBehaviour
 
     public void Return()
     {
-        gmInterface.LoadAR();
+        gmInterface.Return();
     }
 
     private bool CheckAnswer()
@@ -102,12 +105,13 @@ public class PuzzleManager : MonoBehaviour
             Object obj = Resources.Load<Question>("Questions/" + 1);
             currentQuestion = (Question)obj;
         }
-
         //lil code to load a file while in the puzzle scene from the start
 
-        //Object obj = Resources.Load<Question>("Questions/" + 1);  
-        //currentQuestion = (Question)obj;
+        // Object obj = Resources.Load<Question>("Questions/" + 1);
+        // currentQuestion = (Question)obj;
     }
+
+    
 
     private static void SetOrientation()
     {

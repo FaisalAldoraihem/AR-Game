@@ -9,4 +9,9 @@ public interface GameManagerInterface
     PuzzleSO GetLastSelectedMarker();
 
     void RetryScene(int sceneID);
+    void SaveAnswerdQuestion(int questionID);
+
+    void LoadPuzzle(PuzzleSO puzzle);
+
+    void Return();
 }

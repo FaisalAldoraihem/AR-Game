@@ -7,6 +7,7 @@ public class GameManager : GameManagerInterface, IInitializable
 {
     private PuzzleSO lastSelectedMarker;
     private List<int> solvedPuzzles;
+    private bool loadAR;
 
     #region GettersAndSetters
     public PuzzleSO GetLastSelectedMarker()
@@ -25,14 +26,14 @@ public class GameManager : GameManagerInterface, IInitializable
 
     public void Initialize()
     {
-        if (!ES3.KeyExists("solvedPuzzles"))
+        if (ES3.KeyExists("solvedPuzzles"))
         {
-            solvedPuzzles = new List<int>();
-            ES3.Save<List<int>>("solvedPuzzles",solvedPuzzles);
+            solvedPuzzles = ES3.Load<List<int>>("solvedPuzzles");
         }
         else
         {
-            solvedPuzzles = ES3.Load<List<int>>("solvedPuzzles");
+            solvedPuzzles = new List<int>();
+            ES3.Save<List<int>>("solvedPuzzles", solvedPuzzles);
         }
     }
 
@@ -44,6 +45,7 @@ public class GameManager : GameManagerInterface, IInitializable
     public void LoadAR()
     {
         SceneManager.LoadScene(1);
+        loadAR = true;
     }
 
     public void LoadMultipleChoice()
@@ -60,4 +62,26 @@ public class GameManager : GameManagerInterface, IInitializable
     {
         SceneManager.LoadScene(SceneID);
     }
+
+    public void SaveAnswerdQuestion(int questionID)
+    {
+        SolvedPuzzles.Add(questionID);
+        ES3.Save<List<int>>("solvedPuzzles",solvedPuzzles);
+    }
+
+    public void LoadPuzzle(PuzzleSO puzzle){
+        lastSelectedMarker = puzzle;
+        loadAR = false;
+        LoadMultipleChoice();
+    }
+
+    public void Return(){
+        if(loadAR){
+            LoadAR();
+        }else{
+            LoadMainMenue();
+        }
+    }
+    
+
 }

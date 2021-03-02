@@ -13,11 +13,11 @@ public class AnswerData : MonoBehaviour
     [SerializeField] TextMeshProUGUI infoTextObject;
     [SerializeField] Image toggle = null;
 
-    [Header("Textures")]
+    [Title("Textures")]
     [SerializeField] Sprite uncheckedToggle = null;
     [SerializeField] Sprite checkedToggle = null;
 
-    [Header("My dumbass is tierd")]
+    [Title("My dumbass is tierd")]
     [SerializeField] PuzzleManager puzzleManager;
 
     private RectTransform _rect;
