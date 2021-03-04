@@ -27,7 +27,7 @@ public class LocationInfo : MonoBehaviour
 
     public void SetLastSelectedPuzzle()
     {
-        mainMenueManager.SetLastSelectedPuzzle(puzzle);   
+        mainMenueManager.SetLastSelectedPuzzle(puzzle);
     }
 
 }

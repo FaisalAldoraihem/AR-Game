@@ -50,17 +50,22 @@ public class MainMenueManager : MonoBehaviour
         locationInfoPopUpAnimator.DORestartById("PopLocationInfo");
     }
 
-    private void SetLocationButton(){
+    private void SetLocationButton()
+    {
 
-        if(lastSelectedPuzzle.CheckSolved()){
+        if (lastSelectedPuzzle.CheckSolved())
+        {
             retryButton.gameObject.SetActive(true);
-        }else{
+        }
+        else
+        {
             retryButton.gameObject.SetActive(false);
 
         }
     }
-    
-    public void ReplayPuzzle(){
+
+    public void ReplayPuzzle()
+    {
         gmInterface.LoadPuzzle(lastSelectedPuzzle);
     }
 }

@@ -23,7 +23,7 @@ public class ARGameManager : MonoBehaviour
 
 
     [Inject]
-    public void Setup(GameManagerInterface GMInterface,SignalBus signalBus)
+    public void Setup(GameManagerInterface GMInterface, SignalBus signalBus)
     {
         gmInterface = GMInterface;
         _signalBus = signalBus;
@@ -110,7 +110,7 @@ public class ARGameManager : MonoBehaviour
     //Add a popup to make sure of the exit action beb
     public void LoadMainMenue()
     {
-        if(!poped)
+        if (!poped)
             gmInterface.LoadMainMenue();
     }
 }

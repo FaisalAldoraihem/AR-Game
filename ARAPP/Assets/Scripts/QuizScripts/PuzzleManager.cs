@@ -71,8 +71,9 @@ public class PuzzleManager : MonoBehaviour
         bool isCorrect = CheckAnswer();
         var type = isCorrect ? UIManager.ResolutionScreenType.Correct : UIManager.ResolutionScreenType.Incorrect;
         _signalBus.Fire(new QuestionAnswerdSignal(type));
-        
-        if(isCorrect){
+
+        if (isCorrect)
+        {
             gmInterface.SaveAnswerdQuestion(currentQuestion.ID);
         }
     }
@@ -111,7 +112,7 @@ public class PuzzleManager : MonoBehaviour
         // currentQuestion = (Question)obj;
     }
 
-    
+
 
     private static void SetOrientation()
     {

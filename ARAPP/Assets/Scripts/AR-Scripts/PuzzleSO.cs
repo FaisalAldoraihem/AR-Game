@@ -13,7 +13,7 @@ public class PuzzleSO : ScriptableObject
     public string LocationName;
 
     public string LocationDesctiption;
-    
+
     private void Awake()
     {
         CheckSolved();
@@ -21,9 +21,12 @@ public class PuzzleSO : ScriptableObject
 
     public bool CheckSolved()
     {
-        if(ES3.KeyExists("solvedPuzzles")){
+        if (ES3.KeyExists("solvedPuzzles"))
+        {
             return ES3.Load<List<int>>("solvedPuzzles").Contains(PuzzleID);
-        }else{
+        }
+        else
+        {
             return false;
         }
     }
