@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   PuzzleID: 1
-  PuzzleTitle: Ya Beb
-  PuzzleDescription: BEB ya
+  PuzzleTitle: Title
+  PuzzleDescription: Description
   LocationName: My home
   LocationDesctiption: 'very nice very inviting '

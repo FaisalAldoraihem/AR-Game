@@ -21,6 +21,10 @@ public class PuzzleSO : ScriptableObject
 
     public bool CheckSolved()
     {
-        return ES3.Load<List<int>>("solvedPuzzles").Contains(PuzzleID);
+        if(ES3.KeyExists("solvedPuzzles")){
+            return ES3.Load<List<int>>("solvedPuzzles").Contains(PuzzleID);
+        }else{
+            return false;
+        }
     }
 }

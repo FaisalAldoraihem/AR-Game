@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "511528963385",
+    "project_id": "ar-app-dce2b",
+    "storage_bucket": "ar-app-dce2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511528963385:android:1dbdd9ad60d77a614e6ce8",
+        "android_client_info": {
+          "package_name": "com.Faisal.ARAPP"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511528963385-df3l7jj5e3lb5jp7som9cn1u0vr5qrla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHMxe54S7oUdJNoExxiiIe32NLNCjsDFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511528963385-df3l7jj5e3lb5jp7som9cn1u0vr5qrla.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "511528963385-7ueradnevbl7a86kvt9jf32updjvjh9f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Faisal.ARAPP"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
