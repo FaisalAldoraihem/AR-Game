@@ -14,4 +14,8 @@ public interface GameManagerInterface
     void LoadPuzzle(PuzzleSO puzzle);
 
     void Return();
+
+    string GetCurrentUser();
+
+    void SignOut();
 }

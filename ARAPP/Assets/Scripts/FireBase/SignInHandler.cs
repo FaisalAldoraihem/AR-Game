@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine.UI;
 using Firebase.Auth;
+using Sirenix.OdinInspector;
 
 public class SignInHandler : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class SignInHandler : MonoBehaviour
     public TMP_Text emailErrorText;
     public TMP_Text passwordErrorText;
     public Button loginButton;
-    public AuthSetup auth;
+
+    [SerializeField] [AssetsOnly] AuthManager authManager;
     // Whether to sign in / link or reauthentication *and* fetch user profile data.
     protected bool signInAndFetchProfile = true;
 
@@ -33,13 +35,13 @@ public class SignInHandler : MonoBehaviour
         if (signInAndFetchProfile)
         {
             Debug.Log("Hello");
-            return auth.GetAuth().SignInAndRetrieveDataWithCredentialAsync(
+            return authManager.auth.SignInAndRetrieveDataWithCredentialAsync(
               Firebase.Auth.EmailAuthProvider.GetCredential(email, password)).ContinueWithOnMainThread(
                 HandleSignInWithSignInResult);
         }
         else
         {
-            return auth.GetAuth().SignInWithEmailAndPasswordAsync(email, password)
+            return authManager.auth.SignInWithEmailAndPasswordAsync(email, password)
               .ContinueWithOnMainThread(HandleSignInWithUser);
         }
     }

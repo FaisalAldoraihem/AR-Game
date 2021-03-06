@@ -9,6 +9,8 @@ public class GameManager : GameManagerInterface, IInitializable
     private List<int> solvedPuzzles;
     private bool loadAR;
 
+    protected Firebase.Auth.FirebaseAuth auth;
+
     #region GettersAndSetters
     public PuzzleSO GetLastSelectedMarker()
     {
@@ -35,6 +37,8 @@ public class GameManager : GameManagerInterface, IInitializable
             solvedPuzzles = new List<int>();
             ES3.Save<List<int>>("solvedPuzzles", solvedPuzzles);
         }
+
+        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
     }
 
     public void LoadMainMenue()
@@ -44,13 +48,13 @@ public class GameManager : GameManagerInterface, IInitializable
 
     public void LoadAR()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("AR");
         loadAR = true;
     }
 
     public void LoadMultipleChoice()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("MultipleChoice");
     }
 
     public void Quit()
@@ -66,22 +70,36 @@ public class GameManager : GameManagerInterface, IInitializable
     public void SaveAnswerdQuestion(int questionID)
     {
         SolvedPuzzles.Add(questionID);
-        ES3.Save<List<int>>("solvedPuzzles",solvedPuzzles);
+        ES3.Save<List<int>>("solvedPuzzles", solvedPuzzles);
     }
 
-    public void LoadPuzzle(PuzzleSO puzzle){
+    public void LoadPuzzle(PuzzleSO puzzle)
+    {
         lastSelectedMarker = puzzle;
         loadAR = false;
         LoadMultipleChoice();
     }
 
-    public void Return(){
-        if(loadAR){
+    public void Return()
+    {
+        if (loadAR)
+        {
             LoadAR();
-        }else{
+        }
+        else
+        {
             LoadMainMenue();
         }
     }
-    
 
+    public string GetCurrentUser()
+    {
+        return auth.CurrentUser.Email;
+    }
+
+    public void SignOut()
+    {
+        auth.SignOut();
+        SceneManager.LoadScene("Main");
+    }
 }

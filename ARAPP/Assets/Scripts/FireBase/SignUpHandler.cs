@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Firebase.Auth;
 using Firebase.Extensions;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,7 @@ public class SignUpHandler : MonoBehaviour
     public TMP_Text emailErrorText;
     public TMP_Text passwordErrorText;
     public Button signupButton;
-    public AuthSetup auth;
+    [SerializeField] [AssetsOnly] AuthManager authManager;
 
     protected string displayName = "";
 
@@ -47,7 +48,7 @@ public class SignUpHandler : MonoBehaviour
         // This passes the current displayName through to HandleCreateUserAsync
         // so that it can be passed to UpdateUserProfile().  displayName will be
         // reset by AuthStateChanged() when the new user is created and signed in.
-        return auth.GetAuth().CreateUserWithEmailAndPasswordAsync(email, password)
+        return authManager.auth.CreateUserWithEmailAndPasswordAsync(email, password)
           .ContinueWithOnMainThread((task) =>
           {
               EnableUI();

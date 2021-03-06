@@ -7,10 +7,6 @@ public class AuthSetup : MonoBehaviour
     public AuthManager authManager;
     private Firebase.DependencyStatus dependencyStatus = Firebase.DependencyStatus.UnavailableOther;
 
-    public FirebaseAuth GetAuth()
-    {
-        return authManager.auth;
-    }
     void Start()
     {
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
