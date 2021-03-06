@@ -5,25 +5,21 @@ using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class SignUp : MonoBehaviour
+public class SignUpHandler : MonoBehaviour
 {
     public TMP_InputField emailTextBox;
     public TMP_InputField passwordTextBox;
     public TMP_InputField confirmPasswordTextBox;
-    public Button backButton;
-    public Button signupButton;
     public TMP_Text emailErrorText;
     public TMP_Text passwordErrorText;
-    protected Firebase.Auth.FirebaseAuth auth;
+    public Button signupButton;
+    public AuthSetup auth;
+
     protected string displayName = "";
 
     void Start()
     {
-        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         signupButton.onClick.AddListener(() => canSubmit());
-
-        //TODO S switch to sign in 
-        //backButton.onClick.AddListener(() => SceneManager.LoadScene("SignInScene"));
     }
 
     private void canSubmit()
@@ -51,7 +47,7 @@ public class SignUp : MonoBehaviour
         // This passes the current displayName through to HandleCreateUserAsync
         // so that it can be passed to UpdateUserProfile().  displayName will be
         // reset by AuthStateChanged() when the new user is created and signed in.
-        return auth.CreateUserWithEmailAndPasswordAsync(email, password)
+        return auth.GetAuth().CreateUserWithEmailAndPasswordAsync(email, password)
           .ContinueWithOnMainThread((task) =>
           {
               EnableUI();
@@ -96,7 +92,6 @@ public class SignUp : MonoBehaviour
         emailTextBox.DeactivateInputField();
         passwordTextBox.DeactivateInputField();
         confirmPasswordTextBox.DeactivateInputField();
-        backButton.interactable = false;
         signupButton.interactable = false;
         emailErrorText.enabled = false;
         passwordErrorText.enabled = false;
@@ -107,7 +102,6 @@ public class SignUp : MonoBehaviour
         emailTextBox.ActivateInputField();
         passwordTextBox.ActivateInputField();
         confirmPasswordTextBox.ActivateInputField();
-        backButton.interactable = true;
         signupButton.interactable = true;
     }
 

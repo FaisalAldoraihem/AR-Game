@@ -5,45 +5,41 @@ using System;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Firebase.Auth;
 
 public class SignInHandler : MonoBehaviour
 {
     public TMP_InputField emailTextBox;
     public TMP_InputField passwordTextBox;
-    public Button signinButton;
-    public Button createAccountButton;
     public TMP_Text emailErrorText;
     public TMP_Text passwordErrorText;
-    protected Firebase.Auth.FirebaseAuth auth;
+    public Button loginButton;
+    public AuthSetup auth;
     // Whether to sign in / link or reauthentication *and* fetch user profile data.
     protected bool signInAndFetchProfile = true;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        signinButton.onClick.AddListener(() => SigninWithEmailAsync());
-        createAccountButton.onClick.AddListener(() => SceneManager.LoadScene("SignUpScene"));
+        loginButton.onClick.AddListener(() => SigninWithEmailAsync());
     }
 
-    // Sign-in with an email and password.
     public Task SigninWithEmailAsync()
     {
-        var email = emailTextBox.text;
-        var password = passwordTextBox.text;
+        string email = emailTextBox.text;
+        string password = passwordTextBox.text;
         Debug.Log(String.Format("Attempting to sign in as {0}...", email));
         DisableUI();
         if (signInAndFetchProfile)
         {
-            return auth.SignInAndRetrieveDataWithCredentialAsync(
+            Debug.Log("Hello");
+            return auth.GetAuth().SignInAndRetrieveDataWithCredentialAsync(
               Firebase.Auth.EmailAuthProvider.GetCredential(email, password)).ContinueWithOnMainThread(
                 HandleSignInWithSignInResult);
         }
         else
         {
-            return auth.SignInWithEmailAndPasswordAsync(email, password)
+            return auth.GetAuth().SignInWithEmailAndPasswordAsync(email, password)
               .ContinueWithOnMainThread(HandleSignInWithUser);
         }
     }
@@ -101,8 +97,7 @@ public class SignInHandler : MonoBehaviour
     {
         emailTextBox.DeactivateInputField();
         passwordTextBox.DeactivateInputField();
-        signinButton.interactable = false;
-        createAccountButton.interactable = false;
+        loginButton.interactable = false;
         emailErrorText.enabled = false;
         passwordErrorText.enabled = false;
     }
@@ -111,8 +106,7 @@ public class SignInHandler : MonoBehaviour
     {
         emailTextBox.ActivateInputField();
         passwordTextBox.ActivateInputField();
-        signinButton.interactable = true;
-        createAccountButton.interactable = true;
+        loginButton.interactable = true;
     }
 
     // Log the result of the specified task, returning true if the task
@@ -188,4 +182,5 @@ public class SignInHandler : MonoBehaviour
                 break;
         }
     }
+
 }

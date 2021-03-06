@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu]
 public class AuthManager : ScriptableObject
 {
-    protected Firebase.Auth.FirebaseAuth auth;
+    public Firebase.Auth.FirebaseAuth auth;
     protected Dictionary<string, Firebase.Auth.FirebaseUser> userByAuth =
     new Dictionary<string, Firebase.Auth.FirebaseUser>();
 
@@ -35,7 +35,6 @@ public class AuthManager : ScriptableObject
             if (!signedIn && user != null)
             {
                 Debug.Log("Signed out " + user.UserId);
-                SceneManager.LoadScene("SignInScene");
             }
             user = senderAuth.CurrentUser;
             userByAuth[senderAuth.App.Name] = user;
@@ -43,12 +42,12 @@ public class AuthManager : ScriptableObject
             {
                 Debug.Log("Signed in " + user.DisplayName);
                 DisplayDetailedUserInfo(user, 1);
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("MainMenue");
             }
         }
         else
         {
-            SceneManager.LoadScene("SignInScene");
+            Debug.Log("NotLogedIn");
         }
     }
 
