@@ -24,6 +24,10 @@ public class MainMenueManager : MonoBehaviour
     {
         gmInterface = GMInterface;
     }
+    private void Awake()
+    {
+        SetOrientation();
+    }
 
     public void Play()
     {
@@ -47,7 +51,6 @@ public class MainMenueManager : MonoBehaviour
         puzzleLocationTitle.text = lastSelectedPuzzle.LocationName;
         puzzleLocationDescription.text = lastSelectedPuzzle.LocationDesctiption;
         SetLocationButton();
-
         locationsPopUpAnimator.DORestartById("CloseLocations");
         locationInfoPopUpAnimator.DORestartById("PopLocationInfo");
     }
@@ -81,5 +84,14 @@ public class MainMenueManager : MonoBehaviour
     private bool AdminSignedIn()
     {
         return gmInterface.GetCurrentUser() == "faisalaldoraihem@gmail.com";
+    }
+
+    private static void SetOrientation()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
+        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeRight = false;
     }
 }

@@ -126,14 +126,14 @@ public class UIManager : MonoBehaviour
         switch (type)
         {
             case ResolutionScreenType.Correct:
-                uIElements.ResolutionStateInfoText.text = "Ya Beb";
+                uIElements.ResolutionStateInfoText.text = "مبروك";
                 uIElements.ResolutionBG.color = parameters.CorrectBGColor;
                 uIElements.ResolutionHintText.text = String.Empty;
                 SwitchButtons(true);
                 break;
 
             case ResolutionScreenType.Incorrect:
-                uIElements.ResolutionStateInfoText.text = "Na Beb";
+                uIElements.ResolutionStateInfoText.text = "جرب ثانيه";
                 uIElements.ResolutionBG.color = parameters.IncorrectBGColor;
                 SwitchButtons(false);
                 break;

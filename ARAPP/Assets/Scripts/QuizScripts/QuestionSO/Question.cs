@@ -20,13 +20,13 @@ public class Question : ScriptableObject
     [SerializeField] private int questionID;
     public int ID { get { return questionID; } }
 
-    [SerializeField] private string _info = string.Empty;
+    [SerializeField] [TextArea(10, 100)] private string _info = string.Empty;
     public string Info { get { return _info; } }
 
     [SerializeField] private String _hint = String.Empty;
     public string Hint { get { return _hint; } }
 
-    [SerializeField] private String _explanation = String.Empty;
+    [SerializeField] [TextArea(10, 100)] private String _explanation = String.Empty;
     public string Explanation { get { return _explanation; } }
 
 

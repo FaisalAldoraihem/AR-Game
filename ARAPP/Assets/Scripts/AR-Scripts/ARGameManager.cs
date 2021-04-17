@@ -21,7 +21,6 @@ public class ARGameManager : MonoBehaviour
 
     public DOTweenAnimation PopUpAnimator { get { return popUpAnimator; } }
 
-
     [Inject]
     public void Setup(GameManagerInterface GMInterface, SignalBus signalBus)
     {
@@ -52,16 +51,17 @@ public class ARGameManager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                Ray ray = arCamera.ScreenPointToRay(touch.position);
-                if (Physics.Raycast(ray, out RaycastHit hitObject))
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
-                    PuzzleMarker marker = hitObject.transform.GetComponent<PuzzleMarker>();
+                    PuzzleMarker marker = hit.collider.gameObject.GetComponent<PuzzleMarker>();
                     if (marker != null)
                     {
                         MarkerSelected(marker);
                     };
                 }
             }
+
         }
 
         if (Input.GetMouseButtonDown(0) && !poped)
@@ -71,7 +71,7 @@ public class ARGameManager : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hitObject))
             {
                 Debug.Log("It has the marker");
-                PuzzleMarker marker = hitObject.transform.GetComponent<PuzzleMarker>();
+                PuzzleMarker marker = hitObject.collider.gameObject.GetComponent<PuzzleMarker>();
                 if (marker != null)
                 {
                     MarkerSelected(marker);
@@ -103,7 +103,6 @@ public class ARGameManager : MonoBehaviour
 
     public void LoadMultipleChoice()
     {
-        Debug.Log("Hello");
         gmInterface.LoadMultipleChoice();
     }
 
@@ -111,6 +110,9 @@ public class ARGameManager : MonoBehaviour
     public void LoadMainMenue()
     {
         if (!poped)
+        {
             gmInterface.LoadMainMenue();
+        }
+
     }
 }

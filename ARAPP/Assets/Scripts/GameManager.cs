@@ -43,7 +43,7 @@ public class GameManager : GameManagerInterface, IInitializable
 
     public void LoadMainMenue()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenue");
     }
 
     public void LoadAR()

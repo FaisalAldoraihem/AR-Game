@@ -8,12 +8,11 @@ public class PuzzleSO : ScriptableObject
 
     public string PuzzleTitle;
 
-    public string PuzzleDescription;
+    [TextArea(10, 100)] public string PuzzleDescription;
 
     public string LocationName;
 
-    public string LocationDesctiption;
-
+    [TextArea(10, 100)] public string LocationDesctiption;    
     private void Awake()
     {
         CheckSolved();

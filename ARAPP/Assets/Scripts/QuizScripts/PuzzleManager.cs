@@ -64,8 +64,6 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
-    //TODO playaudio? too taky? (its not furniture dumbass)
-    //TODO update the players Answerd questions if correct 
     public void SubmitAnswer()
     {
         bool isCorrect = CheckAnswer();
@@ -103,13 +101,9 @@ public class PuzzleManager : MonoBehaviour
         PuzzleSO puzzleMarkerSO = gmInterface.GetLastSelectedMarker();
         if (puzzleMarkerSO != null)
         {
-            Object obj = Resources.Load<Question>("Questions/" + 1);
+            Object obj = Resources.Load<Question>("Questions/" + puzzleMarkerSO.PuzzleID);
             currentQuestion = (Question)obj;
         }
-        //lil code to load a file while in the puzzle scene from the start
-
-        // Object obj = Resources.Load<Question>("Questions/" + 1);
-        // currentQuestion = (Question)obj;
     }
 
 

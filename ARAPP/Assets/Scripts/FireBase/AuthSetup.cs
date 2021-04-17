@@ -7,6 +7,10 @@ public class AuthSetup : MonoBehaviour
     public AuthManager authManager;
     private Firebase.DependencyStatus dependencyStatus = Firebase.DependencyStatus.UnavailableOther;
 
+    private void Awake()
+    {
+        SetOrientation();
+    }
     void Start()
     {
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
@@ -14,7 +18,6 @@ public class AuthSetup : MonoBehaviour
             dependencyStatus = task.Result;
             if (dependencyStatus == Firebase.DependencyStatus.Available)
             {
-                Debug.Log("Initilizing Firebase");
                 authManager.InitializeFireBase();
             }
             else
@@ -22,5 +25,14 @@ public class AuthSetup : MonoBehaviour
                 Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
             }
         });
+    }
+
+    private static void SetOrientation()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
+        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeRight = false;
     }
 }

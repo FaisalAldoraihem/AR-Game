@@ -16,7 +16,6 @@ public class LocationInfo : MonoBehaviour
     {
         if (puzzle.CheckSolved())
         {
-            Debug.Log("Sloved: LocationInfo");
             icon.sprite = solvedSprite;
         }
         if (mainMenueManager == null)
