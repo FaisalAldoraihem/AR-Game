@@ -12,7 +12,12 @@ public class PuzzleSO : ScriptableObject
 
     public string LocationName;
 
-    [TextArea(10, 100)] public string LocationDesctiption;    
+    [TextArea(10, 100)] public string LocationDesctiption;
+
+    public string locationLink;
+
+    public Sprite locationImage;
+
     private void Awake()
     {
         CheckSolved();

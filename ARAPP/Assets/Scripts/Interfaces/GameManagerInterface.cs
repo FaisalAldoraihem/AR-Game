@@ -18,4 +18,6 @@ public interface GameManagerInterface
     string GetCurrentUser();
 
     void SignOut();
+
+    bool CheckTotorial();
 }

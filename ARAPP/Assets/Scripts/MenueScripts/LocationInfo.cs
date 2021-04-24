@@ -5,23 +5,21 @@ using Sirenix.OdinInspector;
 public class LocationInfo : MonoBehaviour
 {
     [Title("UI Elements")]
-    [SerializeField] [AssetsOnly] Sprite solvedSprite = null;
-    [SerializeField] Image icon;
+    [SerializeField] Image solvedSprite;
+    [SerializeField] Image locationImage;
 
     [Title("Refrances (AssetsOnly)")]
     [SerializeField] [AssetsOnly] PuzzleSO puzzle;
-    [SerializeField] [SceneObjectsOnly] MainMenueManager mainMenueManager;
+    MainMenueManager mainMenueManager;
 
     private void Awake()
     {
+        locationImage.sprite = puzzle.locationImage;
         if (puzzle.CheckSolved())
         {
-            icon.sprite = solvedSprite;
+            solvedSprite.gameObject.SetActive(true);
         }
-        if (mainMenueManager == null)
-        {
-            mainMenueManager = GameObject.FindGameObjectWithTag("MainMenueManager").GetComponent<MainMenueManager>();
-        }
+        mainMenueManager = GameObject.FindGameObjectWithTag("MainMenueManager").GetComponent<MainMenueManager>();
     }
 
     public void SetLastSelectedPuzzle()

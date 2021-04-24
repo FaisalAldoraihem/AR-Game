@@ -16,7 +16,11 @@ public class MainMenueManager : MonoBehaviour
     [SerializeField] [SceneObjectsOnly] TextMeshProUGUI puzzleLocationDescription;
     [SerializeField] [SceneObjectsOnly] DOTweenAnimation locationInfoPopUpAnimator;
     [SerializeField] [SceneObjectsOnly] DOTweenAnimation locationsPopUpAnimator;
-    [SerializeField] [SceneObjectsOnly] Button retryButton;
+    [SerializeField] [SceneObjectsOnly] DOTweenAnimation totorialPopUpAnimator;
+    [SerializeField] [SceneObjectsOnly] Button locationButton;
+    [SerializeField] [SceneObjectsOnly] Button locationButtonSmall;
+    [SerializeField] [SceneObjectsOnly] Button replayButton;
+
     #endregion
 
     [Inject]
@@ -28,7 +32,10 @@ public class MainMenueManager : MonoBehaviour
     {
         SetOrientation();
     }
-
+    private void Start()
+    {
+        Totorial();
+    }
     public void Play()
     {
         gmInterface.LoadAR();
@@ -60,12 +67,15 @@ public class MainMenueManager : MonoBehaviour
 
         if (lastSelectedPuzzle.CheckSolved() || AdminSignedIn())
         {
-            retryButton.gameObject.SetActive(true);
+            replayButton.gameObject.SetActive(true);
+            locationButtonSmall.gameObject.SetActive(true);
+            locationButton.gameObject.SetActive(false);
         }
         else
         {
-            retryButton.gameObject.SetActive(false);
-
+            locationButton.gameObject.SetActive(true);
+            replayButton.gameObject.SetActive(false);
+            locationButtonSmall.gameObject.SetActive(false);
         }
     }
 
@@ -79,8 +89,6 @@ public class MainMenueManager : MonoBehaviour
         gmInterface.SignOut();
     }
 
-    //Dumb UNI rquirements to have some kind of admin
-    //here you go beb 
     private bool AdminSignedIn()
     {
         return gmInterface.GetCurrentUser() == "faisalaldoraihem@gmail.com";
@@ -93,5 +101,19 @@ public class MainMenueManager : MonoBehaviour
         Screen.autorotateToPortraitUpsideDown = true;
         Screen.autorotateToLandscapeLeft = false;
         Screen.autorotateToLandscapeRight = false;
+    }
+
+    public void OpenLocation()
+    {
+        Application.OpenURL(lastSelectedPuzzle.locationLink);
+    }
+
+    private void Totorial()
+    {
+        if (!gmInterface.CheckTotorial())
+        {
+            totorialPopUpAnimator.DORestartById("PoPTotorial");
+            ES3.Save<bool>("totorial", true);
+        }
     }
 }

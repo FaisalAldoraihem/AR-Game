@@ -28,16 +28,7 @@ public class GameManager : GameManagerInterface, IInitializable
 
     public void Initialize()
     {
-        if (ES3.KeyExists("solvedPuzzles"))
-        {
-            solvedPuzzles = ES3.Load<List<int>>("solvedPuzzles");
-        }
-        else
-        {
-            solvedPuzzles = new List<int>();
-            ES3.Save<List<int>>("solvedPuzzles", solvedPuzzles);
-        }
-
+        CheckSaves();
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
     }
 
@@ -101,5 +92,33 @@ public class GameManager : GameManagerInterface, IInitializable
     {
         auth.SignOut();
         SceneManager.LoadScene("Main");
+    }
+
+    private void CheckSaves()
+    {
+        if (ES3.KeyExists("solvedPuzzles"))
+        {
+            solvedPuzzles = ES3.Load<List<int>>("solvedPuzzles");
+        }
+        else
+        {
+            solvedPuzzles = new List<int>();
+            ES3.Save<List<int>>("solvedPuzzles", solvedPuzzles);
+
+        }
+    }
+
+    public bool CheckTotorial()
+    {
+        if (ES3.KeyExists("totorial"))
+        {
+            return ES3.Load<bool>("totorial");
+        }
+        else
+        {
+            ES3.Save<bool>("totorial", false);
+            return false;
+        }
+
     }
 }
