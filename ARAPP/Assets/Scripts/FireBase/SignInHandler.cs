@@ -30,11 +30,9 @@ public class SignInHandler : MonoBehaviour
     {
         string email = emailTextBox.text;
         string password = passwordTextBox.text;
-        Debug.Log(String.Format("Attempting to sign in as {0}...", email));
         DisableUI();
         if (signInAndFetchProfile)
         {
-            Debug.Log("Hello");
             return authManager.auth.SignInAndRetrieveDataWithCredentialAsync(
               Firebase.Auth.EmailAuthProvider.GetCredential(email, password)).ContinueWithOnMainThread(
                 HandleSignInWithSignInResult);

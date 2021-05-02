@@ -7,6 +7,7 @@ public class LocationInfo : MonoBehaviour
     [Title("UI Elements")]
     [SerializeField] Image solvedSprite;
     [SerializeField] Image locationImage;
+    [SerializeField] Sprite TempImage;
 
     [Title("Refrances (AssetsOnly)")]
     [SerializeField] [AssetsOnly] PuzzleSO puzzle;
@@ -14,7 +15,7 @@ public class LocationInfo : MonoBehaviour
 
     private void Awake()
     {
-        locationImage.sprite = puzzle.locationImage;
+        locationImage.sprite = puzzle.locationImage ? puzzle.locationImage : TempImage;
         if (puzzle.CheckSolved())
         {
             solvedSprite.gameObject.SetActive(true);

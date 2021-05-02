@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9c22b24706239b42ade0175d6360f28, type: 3}
-  m_Name: 2
+  m_Name: Kingdom Tower
   m_EditorClassIdentifier: 
-  PuzzleID: 1
+  PuzzleID: 3
   PuzzleTitle: " \u0628\u0631\u062C \u0627\u0644\u0645\u0645\u0644\u0643\u0629"
   PuzzleDescription: "\u062E\u0644\u0627\u0644 \u0647\u0630\u0647 \u0627\u0644\u0623\u0644\u063A\u0627\u0632
     \u0627\u0644\u0645\u0646\u0637\u0642\u064A\u0629 \u0633\u062A\u0633\u062A\u0639\u0645\u0644
@@ -44,5 +44,5 @@ MonoBehaviour:
     \u0634\u0627\u0631\u0639 \u0627\u0644\u0645\u0644\u0643 \u0641\u0647\u062F\u060C
     \u0641\u0647\u0648 \u064A\u062A\u0648\u0633\u0637 \u0623\u0647\u0645 3 \u0637\u0631\u0642
     \u0631\u0626\u064A\u0633\u064A\u0629 \u0641\u064A \u0627\u0644\u0631\u064A\u0627\u0636. "
-  locationLink: https://goo.gl/maps/yThcs8Nip1qohDt79
+  locationLink: https://goo.gl/maps/jZTKdYhqU7rTEv4P6
   locationImage: {fileID: 21300000, guid: edbea3916aee62046a4de0de7f5525e0, type: 3}
